@@ -2,25 +2,24 @@ package Selector;
 
 import java.util.ArrayList;
 
-import Factory.Config01;
+import Human.Couple;
 import Human.DNA;
-import Human.Population;
 
-public class RWSelection extends Config01 implements Selection {
-    ArrayList<DNA> matingPool = new ArrayList<DNA>();
+public class RWSelection extends Selection {
 
-    public void selection() { // product
+    public Couple selectParent(ArrayList<DNA> matingPool) {
 
-    }
-
-    public void select(Population p) { // method
-        DNA[] population = p.population;
-        for (int i = 0; i < population.length; i++) {
-            int n = (int) (population[i].fitness * 100);
-            for (int k = 0; k < n; k++) {
-                matingPool.add(population[i]);
-            }
+        int a = (int) (Math.random() * matingPool.size());
+        int b = (int) (Math.random() * matingPool.size());
+        // get rid of parent with same DNA (can be improved)
+        while (a == b) {
+            b = (int) (Math.random() * matingPool.size());
         }
+        DNA parentA = matingPool.get(a);
+        DNA parentB = matingPool.get(b);
+
+        return new Couple(parentA, parentB);
+
     }
 
 }

@@ -1,19 +1,19 @@
 package Factory;
 
-import Reproducer.Crossover;
-import Selector.Selection;
-import Mutator.Mutation;
+import Human.*;
+import Mutator.*;
+import Reproducer.*;
+import Selector.*;
 
 public abstract class Operator {
 
-    void startProcess(Selection selection, Crossover crossover, Mutation mutation) {
+    abstract public void startProcess(Selection selection, Crossover crossover, Mutation mutation, Population p,
+            String target);
 
-    }
+    abstract public Selection getSelector();
 
-    abstract Selection getSelector();
+    abstract public Crossover getReproducer();
 
-    abstract Crossover getReproducer();
-
-    abstract Mutation getMutator();
+    abstract public Mutation getMutator();
 
 }

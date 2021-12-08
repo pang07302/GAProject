@@ -4,16 +4,19 @@ import Human.Couple;
 import Human.DNA;
 
 public class OnePointCrossover implements Crossover {
-
-    public DNA crossover(Couple parents) {
+    public DNA crossOver(Couple couple) {
         DNA child = new DNA();
-        int crossPoint = (int) (Math.random() * (parents.parentA.genes.length));
-        for (int i = 0; i < parents.parentA.genes.length; i++) {
-            if (i < crossPoint) {
-                child.genes[i] = parents.parentA.genes[i];
+        DNA parentA = couple.parentA;
+        DNA parentB = couple.parentB;
+
+        int midPoint = (int) Math.random() * parentA.genes.length;
+        for (int i = 0; i < parentB.genes.length; i++) {
+            if (i < midPoint) {
+                child.genes[i] = parentB.genes[i];
             } else {
-                child.genes[i] = parents.parentB.genes[i];
+                child.genes[i] = parentA.genes[i];
             }
+
         }
         return child;
     }

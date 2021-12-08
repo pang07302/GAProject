@@ -4,8 +4,9 @@ public class Couple {
     public DNA parentA;
     public DNA parentB;
 
-    public Couple() {
-
+    public Couple(DNA parentA, DNA parentB) {
+        this.parentA = parentA;
+        this.parentB = parentB;
     }
 
 }

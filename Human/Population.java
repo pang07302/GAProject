@@ -1,24 +1,25 @@
 package Human;
 
-import java.util.ArrayList;
+import Human.DNA;
 
 public class Population {
-    public final int size = 1000;
+    final int size = 1000;
     public DNA[] population = new DNA[size];
+
     private static Population p = null;
 
-    private Population(String target) {
-        for (int i = 0; i < population.length; i++) {
+    private Population() {
+        // DNA[] population = new DNA[size];
+        for (int i = 0; i < size; i++) {
             population[i] = new DNA();
-            population[i].calculateFitness(target); // compute the fitness of each DNA sample
         }
 
     }
 
-    public static Population getPopulation(String target) {
+    public static Population getPopulation() {
 
         if (p == null) {
-            p = new Population(target);
+            p = new Population();
         }
         return p;
     }
