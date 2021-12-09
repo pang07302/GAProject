@@ -7,11 +7,11 @@ import Selector.*;
 public class Config02 extends Operator {
 
     public Selection getSelector() {
-        return new RWSelection();
+        return new TournamentSelection();
     }
 
     public Crossover getReproducer() {
-        return new OnePointCrossover();
+        return new UniformCrossover();
     }
 
     public Mutation getMutator() {

@@ -1,7 +1,7 @@
 package Human;
 
 public class DNA {
-    public final int len = 5;
+    public final int len = 6;
     public char[] genes = new char[len];
     public double fitness;
 
