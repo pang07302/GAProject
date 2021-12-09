@@ -13,14 +13,13 @@ public class DNA {
 
     public void calculateFitness(String target) {
         int score = 0;
-        // for (int i = 0; i < target.length(); i++) {
-        // char ch = target.charAt(i);
+
         for (int i = 0; i < genes.length; i++) {
             if (genes[i] == target.charAt(i)) {
                 score++;
             }
         }
-        // }
+
         fitness = (double) score / target.length();
         // System.out.println(fitness);
     }

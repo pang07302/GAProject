@@ -2,7 +2,7 @@ package Mutator;
 
 import Human.DNA;
 
-public class SimpleMutation implements Mutation {
+public class RandomResetting implements Mutation {
     public void mutate(DNA child) {
         double rate = 0.01;
         for (int i = 0; i < child.genes.length; i++) {

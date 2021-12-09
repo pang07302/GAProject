@@ -7,8 +7,9 @@ import Selector.*;
 import java.util.ArrayList;
 
 public class Config01 extends Operator {
-    public ArrayList<DNA> matingPool = new ArrayList<>();
+    public static ArrayList<DNA> matingPool = new ArrayList<>();
 
+    // the whole process of Config01 //make it be a class
     public void startProcess(Selection selection, Crossover crossover, Mutation mutation, Population p, String target) {
         boolean flag = true;
         while (flag) {
@@ -26,7 +27,7 @@ public class Config01 extends Operator {
             }
 
             for (int i = 0; i < p.population.length; i++) {
-                Couple parents = selection.selectParent(matingPool); // RWSelection.selectParent()
+                Couple parents = selection.selectParent(); // RWSelection.selectParent()
                 DNA child = crossover.crossOver(parents); // OnePointCrossover.crossOver()
                 mutation.mutate(child); // SimpleMutation.mutate()
 
@@ -50,7 +51,7 @@ public class Config01 extends Operator {
     }
 
     public Mutation getMutator() {
-        return new SimpleMutation();
+        return new RandomResetting();
 
     }
 

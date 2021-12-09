@@ -11,17 +11,15 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter a 5-characrter-long word in lowercase: ");
         String target = scanner.nextLine();
-
         System.out.println("we are trying....");
-        // String target = "bank";
+
+        // generate random sample
         Population sample = Population.getPopulation();
-        // for(int i=0; i<sample.population.length; i++) {
-        // System.out.println(sample.population[i].getWord());
-        // }
-        Operator config = new Config01();
-        Selection s = config.getSelector(); // new RWSelection()
-        Crossover c = config.getReproducer(); // new OnePointCrossover()
-        Mutation m = config.getMutator(); // new SimpleMutation()
+
+        Operator config = new Config01(); // implement different config
+        Selection s = config.getSelector(); // new RWSelection() or new RandomSelection
+        Crossover c = config.getReproducer(); // new OnePointCrossover() or new TwoPointCrossover()
+        Mutation m = config.getMutator(); // new RandomResetting() or new SwapMutation
 
         config.startProcess(s, c, m, sample, target);
 

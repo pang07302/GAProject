@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Human.Couple;
 import Human.DNA;
 
-abstract public class Selection {
+public interface Selection {
 
-    abstract public Couple selectParent(ArrayList<DNA> matingPool);
+    abstract public Couple selectParent();
 }
