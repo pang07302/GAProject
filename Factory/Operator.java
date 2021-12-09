@@ -1,6 +1,5 @@
 package Factory;
 
-import Human.*;
 import Mutator.*;
 import Reproducer.*;
 import Selector.*;

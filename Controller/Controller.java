@@ -1,12 +1,11 @@
 package Controller;
 
-import Selector.*;
-import Reproducer.*;
-import Mutator.*;
 import Human.*;
+import Factory.*;
 
 public class Controller {
-    public void startProcess(Selection selection, Crossover crossover, Mutation mutation, Population p, String target) {
+
+    public void startProcess(Operator config, Population p, String target) {
         boolean flag = true;
 
         while (flag) {
@@ -15,10 +14,10 @@ public class Controller {
                 p.population[i].calculateFitness(target);
             }
 
-            Couple[] parents = selection.selectParent(p);
+            Couple[] parents = config.getSelector().selectParent(p);
             for (int i = 0; i < p.population.length; i++) {
-                DNA child = crossover.crossOver(parents[i]); // OnePointCrossover.crossOver()
-                mutation.mutate(child); // SimpleMutation.mutate()
+                DNA child = config.getReproducer().crossOver(parents[i]); // OnePointCrossover.crossOver()
+                config.getMutator().mutate(child); // SimpleMutation.mutate()
 
                 if (child.getWord().equals(target)) {
                     System.out.println("Bingo! " + child.getWord());
