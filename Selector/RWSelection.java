@@ -4,23 +4,34 @@ import java.util.ArrayList;
 
 import Human.Couple;
 import Human.DNA;
-import Factory.Config01;
+import Human.Population;
 
 public class RWSelection implements Selection {
-    public ArrayList<DNA> matingPool = Config01.matingPool;
+    public ArrayList<DNA> wheel = new ArrayList<>(); // the wheel
 
-    public Couple selectParent() {
+    public Couple[] selectParent(Population p) {
+        Couple[] couples = new Couple[p.population.length];
 
-        int a = (int) (Math.random() * matingPool.size());
-        int b = (int) (Math.random() * matingPool.size());
-        // get rid of parent with same DNA (can be improved)
-        while (a == b) {
-            b = (int) (Math.random() * matingPool.size());
+        for (int i = 0; i < p.population.length; i++) {
+            int n = (int) (p.population[i].fitness * 20);
+            for (int k = 0; k < n; k++) {
+                wheel.add(p.population[i]);
+            }
         }
-        DNA parentA = matingPool.get(a);
-        DNA parentB = matingPool.get(b);
+        for (int i = 0; i < p.population.length; i++) {
+            int a = (int) (Math.random() * wheel.size());
+            int b = (int) (Math.random() * wheel.size());
+            // get rid of parent with same DNA (can be improved)
+            while (a == b) {
+                b = (int) (Math.random() * wheel.size());
+            }
+            DNA parentA = wheel.get(a);
+            DNA parentB = wheel.get(b);
 
-        return new Couple(parentA, parentB);
+            couples[i] = new Couple(parentA, parentB);
+        }
+
+        return couples;
 
     }
 

@@ -5,6 +5,7 @@ import Human.Population;
 import Reproducer.*;
 import Selector.*;
 import Mutator.*;
+import Controller.Controller;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -21,7 +22,9 @@ public class App {
         Crossover c = config.getReproducer(); // new OnePointCrossover() or new TwoPointCrossover()
         Mutation m = config.getMutator(); // new RandomResetting() or new SwapMutation
 
-        config.startProcess(s, c, m, sample, target);
+        Controller controller = new Controller();
+        controller.startProcess(s, c, m, sample, target);
+        scanner.close();
 
     }
 }
