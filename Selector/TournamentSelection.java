@@ -1,7 +1,7 @@
 package Selector;
 
 import Human.Couple;
-import Human.DNA;
+import Human.Individual;
 import Human.Population;
 import java.util.*;
 
@@ -13,8 +13,8 @@ public class TournamentSelection implements Selection {
         Couple[] couples = new Couple[p.population.length];
 
         for (int i = 0; i < p.population.length; i++) {
-            DNA parentA = null;
-            DNA parentB = null;
+            Individual parentA = null;
+            Individual parentB = null;
             for (int j = 0; j < 2; j++) {
                 double max = 0;
                 int parentIndex = 0;

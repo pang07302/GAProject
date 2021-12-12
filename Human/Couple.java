@@ -1,10 +1,10 @@
 package Human;
 
 public class Couple {
-    public DNA parentA;
-    public DNA parentB;
+    public Individual parentA;
+    public Individual parentB;
 
-    public Couple(DNA parentA, DNA parentB) {
+    public Couple(Individual parentA, Individual parentB) {
         this.parentA = parentA;
         this.parentB = parentB;
     }

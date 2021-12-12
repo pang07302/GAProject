@@ -1,9 +1,9 @@
 package Mutator;
 
-import Human.DNA;
+import Human.Individual;
 
 public class RandomResetting implements Mutation {
-    public void mutate(DNA child) {
+    public void mutate(Individual child) {
         double rate = 0.01;
         for (int i = 0; i < child.genes.length; i++) {
             double r = Math.random();

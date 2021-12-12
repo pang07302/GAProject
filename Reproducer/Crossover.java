@@ -2,8 +2,8 @@
 package Reproducer;
 
 import Human.Couple;
-import Human.DNA;
+import Human.Individual;
 
 public interface Crossover {
-    DNA crossOver(Couple couple);
+    Individual crossOver(Couple couple);
 }

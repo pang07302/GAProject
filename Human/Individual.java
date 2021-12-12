@@ -1,11 +1,11 @@
 package Human;
 
-public class DNA {
+public class Individual {
     public final int len = 6;
     public char[] genes = new char[len];
     public double fitness;
 
-    public DNA() {
+    public Individual() {
         for (int i = 0; i < len; i++) {
             genes[i] = (char) ((int) (Math.random() * (122 - 97 + 1)) + 97);
         }

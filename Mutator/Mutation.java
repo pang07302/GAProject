@@ -1,7 +1,7 @@
 package Mutator;
 
-import Human.DNA;
+import Human.Individual;
 
 public interface Mutation {
-    abstract void mutate(DNA genes);
+    abstract void mutate(Individual genes);
 }

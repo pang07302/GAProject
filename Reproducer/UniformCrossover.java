@@ -1,13 +1,14 @@
 package Reproducer;
 
 import Human.Couple;
-import Human.DNA;
+
+import Human.Individual;
 
 public class UniformCrossover implements Crossover {
-    public DNA crossOver(Couple couple) {
-        DNA child = new DNA();
-        DNA parentA = couple.parentA;
-        DNA parentB = couple.parentB;
+    public Individual crossOver(Couple couple) {
+        Individual child = new Individual();
+        Individual parentA = couple.parentA;
+        Individual parentB = couple.parentB;
 
         // Doing Uniform crossover
         for (int i = 0; i < parentA.genes.length; i++) {

@@ -2,13 +2,13 @@ package Human;
 
 public class Population {
     final int size = 1000;
-    public DNA[] population = new DNA[size];
+    public Individual[] population = new Individual[size];
 
     private static Population p = null;
 
     private Population() {
         for (int i = 0; i < size; i++) {
-            population[i] = new DNA();
+            population[i] = new Individual();
         }
 
     }

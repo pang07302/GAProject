@@ -21,7 +21,7 @@ public class Controller {
 
             Couple[] parents = config.getSelector().selectParent(p);
             for (int i = 0; i < p.population.length; i++) {
-                DNA child = config.getReproducer().crossOver(parents[i]); // OnePointCrossover.crossOver()
+                Individual child = config.getReproducer().crossOver(parents[i]); // OnePointCrossover.crossOver()
                 config.getMutator().mutate(child); // SimpleMutation.mutate()
 
                 if (child.getWord().equals(target)) {

@@ -3,11 +3,11 @@ package Selector;
 import java.util.ArrayList;
 
 import Human.Couple;
-import Human.DNA;
+import Human.Individual;
 import Human.Population;
 
 public class RWSelection implements Selection {
-    public ArrayList<DNA> wheel = new ArrayList<>(); // the wheel
+    public ArrayList<Individual> wheel = new ArrayList<>(); // the wheel
 
     public Couple[] selectParent(Population p) {
         Couple[] couples = new Couple[p.population.length];
@@ -25,8 +25,8 @@ public class RWSelection implements Selection {
             while (a == b) {
                 b = (int) (Math.random() * wheel.size());
             }
-            DNA parentA = wheel.get(a);
-            DNA parentB = wheel.get(b);
+            Individual parentA = wheel.get(a);
+            Individual parentB = wheel.get(b);
 
             couples[i] = new Couple(parentA, parentB);
         }
