@@ -10,15 +10,15 @@ public class RWSelection implements Selection {
     public ArrayList<Individual> wheel = new ArrayList<>(); // the wheel
 
     public Couple[] selectParent(Population p) {
-        Couple[] couples = new Couple[p.population.length];
+        Couple[] couples = new Couple[p.getGroup().length];
 
-        for (int i = 0; i < p.population.length; i++) {
-            int n = (int) (p.population[i].fitness * 20);
+        for (int i = 0; i < p.getGroup().length; i++) {
+            int n = (int) (p.getGroup()[i].getFitness() * 20);
             for (int k = 0; k < n; k++) {
-                wheel.add(p.population[i]);
+                wheel.add(p.getGroup()[i]);
             }
         }
-        for (int i = 0; i < p.population.length; i++) {
+        for (int i = 0; i < p.getGroup().length; i++) {
             int a = (int) (Math.random() * wheel.size());
             int b = (int) (Math.random() * wheel.size());
             // get rid of parent with same DNA (can be improved)

@@ -11,13 +11,13 @@ public class UniformCrossover implements Crossover {
         Individual parentB = couple.parentB;
 
         // Doing Uniform crossover
-        for (int i = 0; i < parentA.genes.length; i++) {
+        for (int i = 0; i < parentA.getGenes().length; i++) {
             // Flipping a coin, if we get value less than 0.5 we swap values in parentA with
             // ParentB
             if (Math.random() < 0.5) {
-                child.genes[i] = parentB.genes[i];
+                child.getGenes()[i] = parentB.getGenes()[i];
             } else {
-                child.genes[i] = parentA.genes[i];
+                child.getGenes()[i] = parentA.getGenes()[i];
             }
         }
 

@@ -10,9 +10,9 @@ these to become parentA, the same process is repeated for selecting parentB  */
 public class TournamentSelection implements Selection {
 
     public Couple[] selectParent(Population p) {
-        Couple[] couples = new Couple[p.population.length];
+        Couple[] couples = new Couple[p.getGroup().length];
 
-        for (int i = 0; i < p.population.length; i++) {
+        for (int i = 0; i < p.getGroup().length; i++) {
             Individual parentA = null;
             Individual parentB = null;
             for (int j = 0; j < 2; j++) {
@@ -20,9 +20,9 @@ public class TournamentSelection implements Selection {
                 int parentIndex = 0;
                 int n = 10;
                 for (int k = 0; k < n; k++) {
-                    int index = new Random().nextInt(p.population.length);
-                    if (p.population[index].fitness > max) {
-                        max = p.population[index].fitness;
+                    int index = new Random().nextInt(p.getGroup().length);
+                    if (p.getGroup()[index].getFitness() > max) {
+                        max = p.getGroup()[index].getFitness();
                         parentIndex = index;
                     }
                 }
@@ -31,9 +31,9 @@ public class TournamentSelection implements Selection {
                 // to parentB
                 // (i remember there has an english word to explain)
                 if (j == 1) {
-                    parentA = p.population[parentIndex];
+                    parentA = p.getGroup()[parentIndex];
                 } else {
-                    parentB = p.population[parentIndex];
+                    parentB = p.getGroup()[parentIndex];
 
                 }
             }

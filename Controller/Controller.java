@@ -15,22 +15,21 @@ public class Controller {
         while (flag) {
             generation++;
             // compute the fitness of each DNA sample
-            for (int i = 0; i < p.population.length; i++) {
-                p.population[i].calculateFitness(target);
+            for (int i = 0; i < p.getGroup().length; i++) {
+                p.getGroup()[i].calculateFitness(target);
             }
 
-            Couple[] parents = config.getSelector().selectParent(p);
-            for (int i = 0; i < p.population.length; i++) {
-                Individual child = config.getReproducer().crossOver(parents[i]); // OnePointCrossover.crossOver()
-                config.getMutator().mutate(child); // SimpleMutation.mutate()
+            Couple[] parents = config.getSelector().selectParent(p); // select
+            for (int i = 0; i < p.getGroup().length; i++) {
+                Individual child = config.getReproducer().crossOver(parents[i]); // crossover
+                config.getMutator().mutate(child); // mutate
 
-                if (child.getWord().equals(target)) {
-                    System.out.println("Bingo! " + child.getWord());
+                if (child.toString().equals(target)) {
+                    System.out.println("Bingo! " + child);
                     flag = false;
                     break;
                 }
-
-                p.population[i] = child;
+                p.getGroup()[i] = child;
 
             }
 

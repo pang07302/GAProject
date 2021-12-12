@@ -9,12 +9,12 @@ public class OnePointCrossover implements Crossover {
         Individual parentA = couple.parentA;
         Individual parentB = couple.parentB;
 
-        int midPoint = (int) Math.random() * parentA.genes.length;
-        for (int i = 0; i < parentB.genes.length; i++) {
+        int midPoint = (int) Math.random() * parentA.getGenes().length;
+        for (int i = 0; i < parentB.getGenes().length; i++) {
             if (i < midPoint) {
-                child.genes[i] = parentB.genes[i];
+                child.getGenes()[i] = parentB.getGenes()[i];
             } else {
-                child.genes[i] = parentA.genes[i];
+                child.getGenes()[i] = parentA.getGenes()[i];
             }
 
         }

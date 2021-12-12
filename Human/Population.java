@@ -2,13 +2,13 @@ package Human;
 
 public class Population {
     final int size = 1000;
-    public Individual[] population = new Individual[size];
+    private Individual[] group = new Individual[size];
 
     private static Population p = null;
 
     private Population() {
         for (int i = 0; i < size; i++) {
-            population[i] = new Individual();
+            group[i] = new Individual();
         }
 
     }
@@ -19,6 +19,10 @@ public class Population {
             p = new Population();
         }
         return p;
+    }
+
+    public Individual[] getGroup() {
+        return group;
     }
 
 }
