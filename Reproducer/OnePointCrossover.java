@@ -6,8 +6,8 @@ import Human.Individual;
 public class OnePointCrossover implements Crossover {
     public Individual crossOver(Couple couple) {
         Individual child = new Individual();
-        Individual parentA = couple.parentA;
-        Individual parentB = couple.parentB;
+        Individual parentA = couple.getParentA();
+        Individual parentB = couple.getParentB();
 
         int midPoint = (int) Math.random() * parentA.getGenes().length;
         for (int i = 0; i < parentB.getGenes().length; i++) {

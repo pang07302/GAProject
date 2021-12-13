@@ -7,8 +7,8 @@ import Human.Individual;
 public class UniformCrossover implements Crossover {
     public Individual crossOver(Couple couple) {
         Individual child = new Individual();
-        Individual parentA = couple.parentA;
-        Individual parentB = couple.parentB;
+        Individual parentA = couple.getParentA();
+        Individual parentB = couple.getParentB();
 
         // Doing Uniform crossover
         for (int i = 0; i < parentA.getGenes().length; i++) {
