@@ -3,7 +3,7 @@ package Controller;
 import Human.*;
 import Factory.*;
 
-public class Controller {
+public class GAController {
 
     public void startProcess(Operator config, String target) {
         // generate random sample

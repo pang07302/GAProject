@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 import Factory.*;
-import Controller.Controller;
+import Controller.GAController;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Controller controller = new Controller();
+        GAController controller = new GAController();
 
         Scanner scanner = new Scanner(System.in);
 
