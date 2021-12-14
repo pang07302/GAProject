@@ -25,7 +25,7 @@ public class GAController {
                 config.getMutator().mutate(child); // mutate
 
                 if (child.toString().equals(target)) {
-                    System.out.println("Bingo! " + child);
+                    System.out.println("Bingo! We find the target: " + child);
                     flag = false;
                     break;
                 }

@@ -12,14 +12,14 @@ public class App {
         // GA combination 1
         System.out.println("Please enter a 6-characrter-long word in lowercase: ");
         String target = scanner.nextLine().toLowerCase();
-        System.out.println("we are trying....");
+        System.out.println("we are finding....");
         Operator config = new Config01(); // implement config02
         controller.startProcess(config, target);
 
         // GA combination 2
         System.out.println("Please enter another 6-characrter-long word in lowercase: ");
         target = scanner.nextLine().toLowerCase();
-        System.out.println("we are trying....");
+        System.out.println("we are finding....");
         config = new Config02(); // implement config02
         controller.startProcess(config, target);
 
