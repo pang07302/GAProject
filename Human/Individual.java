@@ -8,6 +8,7 @@ public class Individual {
     public Individual() {
         genes = new char[len];
         for (int i = 0; i < len; i++) {
+            // in this case, our genes[] is a char array, so restrict it to <Character>
             genes[i] = new DNA<Character>((char) ((int) (Math.random() * (122 - 97 + 1)) + 97)).getGene();
 
         }
